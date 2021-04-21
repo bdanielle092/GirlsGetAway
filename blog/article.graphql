@@ -1,0 +1,24 @@
+type Article {
+  id: ID!
+  title: String!
+  description: String
+  cover_image: String
+  readable_publish_date: String
+  #tag_list: String
+  path: String!
+  slug: String!
+  url: String!
+  published_timestamp: Date!
+  #username: String!
+  #organization: String
+  #github_username: String!
+  body_html: String
+  body_markdown: String
+}
+
+type Query {
+  myArticles(username: String!): [Article]
+    @rest(
+      endpoint: "https://dev.to/api/articles?username=cerchie&per_page=1000"
+    )
+}
